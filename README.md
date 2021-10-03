@@ -97,6 +97,23 @@ Oct 03 20:37:00 localhost systemd[1]: Started A high performance web server and 
   drone/drone:2
 ```
 
+You should replace all variables values or load environment for them. The original 80 and 443 are taken by nginx service running in the machine.
+
+* Once you have the server container running you should start the runner with following command.
+
+```bash
+> docker run -d \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -e DRONE_RPC_PROTO=https \
+  -e DRONE_RPC_HOST=drone.company.com \
+  -e DRONE_RPC_SECRET=super-duper-secret \
+  -e DRONE_RUNNER_CAPACITY=2 \
+  -e DRONE_RUNNER_NAME=${HOSTNAME} \
+  -p 3000:3000 \
+  --restart always \
+  --name runner \
+  drone/drone-runner-docker:1
+```
 
 
 ## 🔧 Running the tests
