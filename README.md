@@ -34,6 +34,8 @@ What things you need to install the software and how to install them.
 Linode Ubuntu Virtual Machine
 Install Docker
 Install NGINX
+Domain
+Run drone docker container
 
 ```
 
@@ -77,7 +79,25 @@ Oct 03 20:37:00 localhost systemd[1]: Starting A high performance web server and
 Oct 03 20:37:00 localhost systemd[1]: Started A high performance web server and a rever>
 ```
 
-End with an example of getting some data out of the system or using it for a little demo.
+* Once you have configured the domain to reach your machine and the OAuth app is registered on GitHub,we need to run the following command taken from drone CI documentation.
+  
+```bash
+> docker run \
+  --volume=/var/lib/drone:/data \
+  --env=DRONE_GITHUB_CLIENT_ID={{DRONE_GITHUB_CLIENT_ID}} \
+  --env=DRONE_GITHUB_CLIENT_SECRET={{DRONE_GITHUB_CLIENT_SECRET}} \
+  --env=DRONE_RPC_SECRET={{DRONE_RPC_SECRET}} \
+  --env=DRONE_SERVER_HOST={{DRONE_SERVER_HOST}} \
+  --env=DRONE_SERVER_PROTO={{DRONE_SERVER_PROTO}} \
+  --publish=8080:80 \ #avoid use the port taken for nginx
+  --publish=444:443 \
+  --restart=always \
+  --detach=true \
+  --name=drone \
+  drone/drone:2
+```
+
+
 
 ## 🔧 Running the tests
 
