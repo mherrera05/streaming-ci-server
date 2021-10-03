@@ -9,14 +9,11 @@ Drone CI server using Linode VM
 - [🏁 Getting Started](#-getting-started)
   - [Prerequisites](#prerequisites)
   - [Installing](#installing)
-- [🔧 Running the tests](#-running-the-tests)
-  - [Break down into end to end tests](#break-down-into-end-to-end-tests)
-  - [And coding style tests](#and-coding-style-tests)
-- [🎈 Usage <a name="usage"></a>](#-usage-)
-- [🚀 Deployment](#-deployment)
-- [⛏️ Built Using](#️-built-using)
+- [🔧 All in one run](#-all-in-one-run)
+- [🎈 Usage](#-usage)
 - [✍️ Authors](#️-authors)
 - [🎉 Acknowledgements](#-acknowledgements)
+- [🎉 Reference](#-reference)
 
 ## 🧐 About
 
@@ -36,7 +33,6 @@ Install Docker
 Install NGINX
 Domain
 Run drone docker container
-
 ```
 
 ### Installing
@@ -155,49 +151,41 @@ Then to restart the nginx service just run the following command.
 If all goes right and nginx restarts well you can request the domain on the web browser.
 
 
-## 🔧 Running the tests
+## 🔧 All in one run
 
-Explain how to run the automated tests for this system.
+To run the all in one installation add all the environment variables to your instance
 
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+```bash
+export DRONE_GITHUB_CLIENT_ID=<github-client-id>
+export DRONE_GITHUB_CLIENT_SECRET=<github-client-secret>
+export DRONE_RPC_SECRET=<shared-secret>
+export DRONE_SERVER_HOST=<domain-or-subdomain>
+export DRONE_SERVER_PROTO=<protocol>
+export HOSTNAME=<machine-name>
 ```
 
-## 🎈 Usage <a name="usage"></a>
+* Once you have loaded all the environment variables you just need to copy the all-in-one-run.sh file usgin scp command
 
-Add notes about how to use the system.
+```bash
+> scp all-in-one-run.sh <user>@<ip>:<folder>
+```
 
-## 🚀 Deployment
+* Inside the machine, just run the instruction
 
-Add additional notes about how to deploy this on a live system.
+```bash
+> ./all-in-one-run.sh
+```
 
-## ⛏️ Built Using
+## 🎈 Usage
 
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
+You have to enable the repository that you want to integrate with drone and add the .drone.yml file.
 
 ## ✍️ Authors
 
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
-
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
+- [Miguel Herrera](https://github.com/mherrera05) - Full Stack Developer
 
 ## 🎉 Acknowledgements
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
+## 🎉 Reference
+- [Drone](https://www.drone.io)
+- [Linode](https://cloud.linode.com)
