@@ -115,6 +115,45 @@ You should replace all variables values or load environment for them. The origin
   drone/drone-runner-docker:1
 ```
 
+* After you have running drone server and drone runner containers we need to expose our running services using nginx and make them reachable through the DNS.
+
+Create a file ```drone.conf``` in the following path
+
+```bash
+/etc/nginx/conf.d/
+```
+
+With the content to add new virtual host.
+
+```bash
+server {
+       listen 80;
+       listen 443;
+       listen [::]:443;
+
+       server_name <subdomain>;
+
+       location / {
+	       proxy_set_header    X-Real-IP           $remote_addr;
+	       proxy_set_header    X-Forwarded-For     $proxy_add_x_forwarded_for;
+	       proxy_set_header    X-Forwarded-Proto   $scheme;
+	       proxy_set_header    Host                $host;
+	       proxy_set_header    X-Forwarded-Host    $host;
+	       proxy_set_header    X-Forwarded-Port    $server_port;
+           proxy_pass 	   http://127.0.0.1:8080;
+
+       }
+}
+```
+
+Then to restart the nginx service just run the following command.
+
+```bash
+> service nginx restart
+```
+
+If all goes right and nginx restarts well you can request the domain on the web browser.
+
 
 ## 🔧 Running the tests
 
