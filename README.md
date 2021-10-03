@@ -4,15 +4,19 @@ Drone CI server using Linode VM
 
 ## 📝 Table of Contents
 
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Deployment](#deployment)
-- [Usage](#usage)
-- [Built Using](#built_using)
-- [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
-- [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
+- [📝 Table of Contents](#-table-of-contents)
+- [🧐 About](#-about)
+- [🏁 Getting Started](#-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installing](#installing)
+- [🔧 Running the tests](#-running-the-tests)
+  - [Break down into end to end tests](#break-down-into-end-to-end-tests)
+  - [And coding style tests](#and-coding-style-tests)
+- [🎈 Usage <a name="usage"></a>](#-usage-)
+- [🚀 Deployment](#-deployment)
+- [⛏️ Built Using](#️-built-using)
+- [✍️ Authors](#️-authors)
+- [🎉 Acknowledgements](#-acknowledgements)
 
 ## 🧐 About
 
@@ -28,7 +32,9 @@ What things you need to install the software and how to install them.
 
 ```
 Linode Ubuntu Virtual Machine
-INnstal Docker
+Install Docker
+Install NGINX
+
 ```
 
 ### Installing
@@ -41,10 +47,34 @@ To check that you have docker installed.
 > docker version
 ```
 
-And repeat
+To install nginx just run the following command
 
+```bash
+> apt install nginx
 ```
-until finished
+
+After the installation process and for checking it is running. Run the command
+
+```bash
+> service nginx status
+```
+
+You will see the following output
+
+```bash
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sun 2021-10-03 20:37:00 UTC; 45s ago
+       Docs: man:nginx(8)
+   Main PID: 20790 (nginx)
+      Tasks: 2 (limit: 1071)
+     Memory: 5.2M
+     CGroup: /system.slice/nginx.service
+             ├─20790 nginx: master process /usr/sbin/nginx -g daemon on; master_process>
+             └─20791 nginx: worker process
+
+Oct 03 20:37:00 localhost systemd[1]: Starting A high performance web server and a reve>
+Oct 03 20:37:00 localhost systemd[1]: Started A high performance web server and a rever>
 ```
 
 End with an example of getting some data out of the system or using it for a little demo.
