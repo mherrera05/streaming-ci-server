@@ -28,16 +28,17 @@ What things you need to install the software and how to install them.
 
 ```
 Linode Ubuntu Virtual Machine
+INnstal Docker
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running.
+To install Docker for Ubuntu machine just follow the instructions on https://docs.docker.com/engine/install/ubuntu/.
 
-Say what the step will be
+To check that you have docker installed.
 
-```
-Give the example
+```bash
+> docker version
 ```
 
 And repeat
