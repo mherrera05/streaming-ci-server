@@ -12,8 +12,8 @@ Drone CI server using Linode VM
 - [🔧 All in one run](#-all-in-one-run)
 - [🎈 Usage](#-usage)
 - [✍️ Authors](#️-authors)
-- [🎉 Acknowledgements](#-acknowledgements)
-- [🎉 Reference](#-reference)
+- [Reference](#reference)
+- [Streaming](#streaming)
 
 ## 🧐 About
 
@@ -184,8 +184,9 @@ You have to enable the repository that you want to integrate with drone and add 
 
 - [Miguel Herrera](https://github.com/mherrera05) - Full Stack Developer
 
-## 🎉 Acknowledgements
-
-## 🎉 Reference
+## Reference
 - [Drone](https://www.drone.io)
 - [Linode](https://cloud.linode.com)
+
+## Streaming
+[Crear servidor de integración continua usando Drone y Linode](https://www.youtube.com/watch?v=3jU3TrEVGo4&t=386s)
